@@ -1,0 +1,7 @@
+for a in range(1,1000):
+    for b in range(1,1000):
+        if a<b:
+            l=a**2+b**2
+            r=(1000-a-b)**2
+            if l==r:
+                print(a*b*(1000-a-b))
