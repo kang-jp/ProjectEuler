@@ -23,18 +23,19 @@ s=[int(t) for t in s]
 
 import numpy as np
 inp=np.array(np.array_split(s,20))
-print(inp)
+# print(inp)
+
 from mylib.operators import productsum
 
 ans=-1
-ds=[(0,1),(1,0),(1,1)]
+ds=[(0,1),(1,0),(1,1),(-1,1)]
 for dx,dy in ds:
     for x in range(20):
         for y in range(20):
-            if x+dx*3<20 and y+dy*3<20:
+            if 0<=x+dx*3<20 and 0<=y+dy*3<20:
                 # print(x,y)
                 nums=[inp[x+dx*k,y+dy*k] for k in range(4)]
-                if ans<productsum(nums):
+                if x==10 and y==10:
                     print(nums)
                 ans=max(productsum(nums),ans)
 
